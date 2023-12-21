@@ -1,0 +1,19 @@
+body{
+    background-color: antiquewhite;
+}
+
+#main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.week{
+    width: 100px;
+    aspect-ratio: 1/1;
+    background-color: aquamarine;
+    margin: 25px;
+}
+
+.pressed{
+    border: 2px solid black;
+}
