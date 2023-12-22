@@ -11,7 +11,13 @@
     <h1>TITLE</h1>
 
     <% names.forEach(function(element) { %>
-        <div><%= element %></div>
+        <div class="formDiv">
+            <form action="/delete" method="POST">
+                <input id="text" type="text" name="postId" value="<%= element %>">
+                
+                <button>Delete</button> 
+            </form>
+        </div>
     <% }); %>
     
     <form action="/submit" method="POST">

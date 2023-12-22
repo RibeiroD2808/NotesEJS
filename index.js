@@ -2,6 +2,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
+import { name } from "ejs";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const app = express();
@@ -17,8 +18,16 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
+    names.push(req.body.post1);
+    res.render("index.ejs", {names:names});
+});
 
-    console.log(req.body.post1);
+
+app.post("/delete", (req, res) => {
+    //delete element on names
+    let index = names.indexOf(req.body.postId);
+    console.log(req.body.postId);
+    names.splice(index, 1);
     res.render("index.ejs", {names:names});
 });
 
