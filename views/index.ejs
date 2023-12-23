@@ -10,12 +10,14 @@
 <body>
     <h1>TITLE</h1>
 
-    <% names.forEach(function(element) { %>
+    <% names.forEach(function(element, index) { %>
         <div class="formDiv">
-            <form action="/delete" method="POST">
-                <input id="text" type="text" name="postId" value="<%= element %>">
-                
-                <button>Delete</button> 
+            <form action="/actions" method="POST">
+                <input type="text" name="index" value="<%= index %>">
+                <input type="text" id="text"  name="postId" value="<%= element %>">
+
+                <button type="submit" name="action" value="delete">Delete</button>
+                <button type="submit" name="action" value="edit">Edit</button> 
             </form>
         </div>
     <% }); %>
