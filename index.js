@@ -8,19 +8,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
 
-const names = ["POST1", "POST2"]; 
+const notes = ["Work Tasks:\n\n Check emails and respond \n\n Complete project report for the meeting at 11 AM \n\n Attend the 2 PM team meeting", "POST2"]; 
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-    console.log(names);
-    res.render("index.ejs", {names:names});
+    console.log(notes);
+    res.render("index.ejs", {notes:notes});
 });
 
 app.post("/submit", (req, res) => {
-    names.push(req.body.post1);
-    res.render("index.ejs", {names:names});
+    notes.push("");
+    res.redirect("/");
+    //res.render("index.ejs", {notes:notes});
 });
 
 
@@ -34,16 +35,16 @@ app.post("/actions", (req, res) => {
     console.log("value " + value);
 
 
-    //delete element on names arrays
+    //delete element on notes arrays
     if(action === 'delete'){
-        names.splice(index, 1);     
+        notes.splice(index, 1);     
     }else if(action === 'edit'){
-        names[index] = value;
-        console.log("safasf" + names[index]);
+        notes[index] = value;
+        console.log("edit" + notes[index] + index);
     } 
-    console.log(names);
+    console.log(notes);
 
-    res.render("index.ejs", {names:names});
+    res.redirect("/");
 });
 
 app.listen(port, () => {
