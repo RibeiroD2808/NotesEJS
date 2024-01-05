@@ -6,3 +6,72 @@ body{
     display: flex;
     flex-wrap: wrap;
 }
+
+h1{
+    text-align: center;
+}
+#notesDiv{
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 0px 30px;
+}
+
+.formDiv{
+    display: flex;
+    width: 300px;
+    aspect-ratio: 1/1;
+    padding: 10px;
+    
+}
+
+#text{
+    padding: 20px;
+    border-radius: 40px;
+    height: 80%;
+    width: 260px;
+    border: 0px;
+    vertical-align: top;
+    resize:none;
+}
+
+#buttonDiv{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+
+#buttonDiv > *{
+    width: 40px;
+    aspect-ratio: 1/1;
+    margin-top: 5px;
+    border-radius: 40px;
+}
+
+
+#editButton{
+    background: #ecde10;
+    border: 1px solid #ecde10;
+}
+
+#deleteButton{
+    background: #ec1010;
+    border: 1px solid #ec1010;
+}
+
+#addDiv{
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+#addButton{
+    width: 100px;
+    aspect-ratio: 1/1;
+    color: white;
+    background-color: #7ee94c;
+    border: 1px solid #7ee94c;
+    font-size: xx-large;
+    border-radius: 40px;
+}

@@ -4,27 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
-    <h1>TITLE</h1>
-
-    <% names.forEach(function(element, index) { %>
-        <div class="formDiv">
-            <form action="/actions" method="POST">
-                <input type="text" name="index" value="<%= index %>">
-                <input type="text" id="text"  name="postId" value="<%= element %>">
-
-                <button type="submit" name="action" value="delete">Delete</button>
-                <button type="submit" name="action" value="edit">Edit</button> 
-            </form>
-        </div>
-    <% }); %>
-    
-    <form action="/submit" method="POST">
-        <input type="text" name="post1">
-        <input type="submit">
-    </form>
+    <h1>Notes</h1>
+    <div id="notesDiv">
+        <% notes.forEach(function(element, index) { %>
+            <div class="formDiv">
+                <form action="/actions" method="POST">
+                    <input type="hidden" name="index" value="<%= index %>">
+                    <textarea id="text" name="postId" rows="10" spellcheck="false" ><%= element %></textarea>
+                    <div id="buttonDiv">
+                        <button id="editButton"  type="submit" name="action" value="edit"><i class="fas fa-edit fa-lg"></i></button> 
+                        <button id="deleteButton" type="submit" name="action" value="delete"><i class="fa fa-trash"></i></button>
+                    </div>
+                </form>
+            </div>
+        <% }); %>
+    </div>
+    <div id="addDiv">   
+        <form action="/submit" method="POST">
+            <button id="addButton" type="submit"><i class="fa fa-plus fa-lg"></i></button>
+        </form>
+    </div>
 </body>
 </html>
